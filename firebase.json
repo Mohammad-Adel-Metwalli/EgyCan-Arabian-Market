@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "egycan-arabian-market-827df",
+          "appId": "1:533168620057:android:cd6d04a2c73a5dc44c6088",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "egycan-arabian-market-827df",
+          "configurations": {
+            "android": "1:533168620057:android:cd6d04a2c73a5dc44c6088",
+            "ios": "1:533168620057:ios:7cfdfb05c2506b804c6088",
+            "macos": "1:533168620057:ios:7cfdfb05c2506b804c6088",
+            "web": "1:533168620057:web:373399c830b1bf294c6088",
+            "windows": "1:533168620057:web:a5a12bf436f9fad04c6088"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

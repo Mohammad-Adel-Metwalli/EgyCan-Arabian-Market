@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "533168620057",
+    "project_id": "egycan-arabian-market-827df",
+    "storage_bucket": "egycan-arabian-market-827df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533168620057:android:133368c1055a68ed4c6088",
+        "android_client_info": {
+          "package_name": "com.example.egycan_admin_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChQ7LyS7t3Bv6-eq4CKIAAJJIcFjTI_5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533168620057:android:cd6d04a2c73a5dc44c6088",
+        "android_client_info": {
+          "package_name": "com.example.egycan_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChQ7LyS7t3Bv6-eq4CKIAAJJIcFjTI_5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
