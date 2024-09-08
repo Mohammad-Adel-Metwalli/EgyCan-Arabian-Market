@@ -29,6 +29,18 @@ class _HomeViewState extends State<HomeView>
     precacheImage(const AssetImage('Assets/Images/Instagram-icon.png'), context);
     precacheImage(const AssetImage('Assets/Images/EgyCan-logo.png'), context);
     precacheImage(const AssetImage('Assets/Images/world-icon.png'), context);
+    precacheImage(const AssetImage('Assets/Images/EgyCan Company Image.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-2.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-3.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-4.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-5.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-6.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-7.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-8.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-9.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-10.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-11.jpg'), context);
+    precacheImage(const AssetImage('Assets/Images/Image-12.jpg'), context);
     super.didChangeDependencies();
   }
 
