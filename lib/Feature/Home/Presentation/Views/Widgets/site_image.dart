@@ -4,7 +4,8 @@ import '../../../../../Core/Utils/constant_colors.dart';
 
 class SiteImage extends StatelessWidget
 {
-  const SiteImage({super.key,});
+  const SiteImage({super.key, required this.image,});
+  final String image;
 
   @override
   Widget build(BuildContext context)
@@ -15,7 +16,7 @@ class SiteImage extends StatelessWidget
       decoration: BoxDecoration(
         color: blueGrey,
         borderRadius: BorderRadius.circular(20),
-        image: const DecorationImage(image: AssetImage('Assets/Images/giza-egypt-pyramids.jpg'), fit: BoxFit.cover),
+        image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
       ),
     );
   }

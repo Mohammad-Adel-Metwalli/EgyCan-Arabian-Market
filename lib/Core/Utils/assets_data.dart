@@ -71,4 +71,19 @@ abstract class AssetsData
     'Fresh Vegetables',
     'Egyptian Produce',
   ];
+
+  static final List<String> imagesOfEgyCan = [
+    'Assets/Images/EgyCan Company Image.jpg',
+    'Assets/Images/Image 2.jpg',
+    'Assets/Images/Image 3.jpg',
+    'Assets/Images/Image 4.jpg',
+    'Assets/Images/Image 5.jpg',
+    'Assets/Images/Image 6.jpg',
+    'Assets/Images/Image 7.jpg',
+    'Assets/Images/Image 8.jpg',
+    'Assets/Images/Image 9.jpg',
+    'Assets/Images/Image 10.jpg',
+    'Assets/Images/Image 11.jpg',
+    'Assets/Images/Image 12.jpg',
+  ];
 }

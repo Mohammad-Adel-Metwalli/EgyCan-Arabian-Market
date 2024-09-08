@@ -24,7 +24,7 @@ class _HomeViewBodyState extends State<HomeViewBody>
   List<dynamic> categoryValues = [];
   List<String> categoryKeys = [];
   String searchedProduct = '';
-  int indexOfSiteImages = 1;
+  int indexOfSiteImages = 0;
 
   @override
   Widget build(BuildContext context)

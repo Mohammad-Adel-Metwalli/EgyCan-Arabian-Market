@@ -1,3 +1,4 @@
+import 'package:egycan_app/Core/Utils/assets_data.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../Core/Utils/constant_colors.dart';
@@ -17,7 +18,7 @@ class _SiteImagesDotsState extends State<SiteImagesDots>
   Widget build(BuildContext context)
   {
     return AnimatedSmoothIndicator(
-      count: 3,
+      count: AssetsData.imagesOfEgyCan.length,
       activeIndex: widget.indexOfSiteImages,
       effect: const ExpandingDotsEffect(
         dotColor: blue,
