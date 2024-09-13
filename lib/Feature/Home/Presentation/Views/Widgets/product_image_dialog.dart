@@ -11,7 +11,7 @@ class ProductImageDialog extends StatelessWidget
   Widget build(BuildContext context)
   {
     return SizedBox(
-      height: 250.h,
+      height: 350.h,
       width: double.infinity,
       child: ListView.builder(
         itemCount: imagesUrls.length,

@@ -8,8 +8,7 @@ import 'category_list_view_item.dart';
 
 class CategoryListView extends StatefulWidget
 {
-  const CategoryListView({super.key, required this.categoryTitle, required this.searchedProduct,});
-  final String searchedProduct;
+  const CategoryListView({super.key, required this.categoryTitle,});
   final String categoryTitle;
 
   @override
@@ -48,7 +47,10 @@ class _CategoryListViewState extends State<CategoryListView>
           child: ListView.builder(
             itemCount: allProducts.length,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => allProducts.isNotEmpty ? (allProducts[index].category == widget.categoryTitle && allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) ? ZoomIn(child: CategoryListViewItem(index: index, productModel: allProducts[index])) : const SizedBox.shrink()) : const SizedBox.shrink(),
+            itemBuilder: (context, index)
+            {
+              return allProducts.isNotEmpty ? (allProducts[index].category == widget.categoryTitle ? ZoomIn(child: CategoryListViewItem(index: index, productModel: allProducts[index])) : const SizedBox.shrink()) : const SizedBox.shrink();
+            },
           ),
         );
       },

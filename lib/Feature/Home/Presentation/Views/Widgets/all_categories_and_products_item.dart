@@ -7,10 +7,9 @@ import '../../../../../Core/Widgets/category_title.dart';
 
 class AllCategoriesAndProductsItem extends StatelessWidget
 {
-  const AllCategoriesAndProductsItem({super.key, required this.categoryValues, required this.categoryKeys, required this.index, required this.searchedProduct,});
+  const AllCategoriesAndProductsItem({super.key, required this.categoryValues, required this.categoryKeys, required this.index,});
   final int index;
   final List categoryValues;
-  final String searchedProduct;
   final List<String> categoryKeys;
 
   @override
@@ -19,24 +18,26 @@ class AllCategoriesAndProductsItem extends StatelessWidget
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CategoryTitle(title: categoryValues[index][0]),
 
-            SizedBox(width: MediaQuery.sizeOf(context).width * 0.005),
 
-            ShowProductsOfCategory(onPressed: () => GoRouter.of(context).replace(
-              displayProductViewPath,
-              extra: {
-                'title': categoryValues[index][0],
-                'products': categoryValues[index],
-              },
-            )),
+            ShowProductsOfCategory(
+              onPressed: () => GoRouter.of(context).replace(
+                displayProductViewPath,
+                extra: {
+                  'title': categoryValues[index][0],
+                  'products': categoryValues[index],
+                },
+              ),
+            ),
           ],
         ),
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.035),
 
-        CategoryListView(categoryTitle: categoryValues[index][0], searchedProduct: searchedProduct),
+        CategoryListView(categoryTitle: categoryValues[index][0]),
 
         index == categoryKeys.length - 1 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.035) : const SizedBox.shrink(),
       ],

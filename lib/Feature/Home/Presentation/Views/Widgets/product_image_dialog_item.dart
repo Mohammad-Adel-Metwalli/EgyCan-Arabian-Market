@@ -14,10 +14,10 @@ class ProductImageDialogItem extends StatelessWidget
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
       child: CachedNetworkImage(
+        fit: BoxFit.contain,
+        imageUrl: imagesUrls[index],
         height: MediaQuery.sizeOf(context).width <= 500 ? 140.h : 250.h,
         width: MediaQuery.sizeOf(context).width <= 500 ? 300.w : 425.w,
-        fit: BoxFit.cover,
-        imageUrl: imagesUrls[index],
       ),
     );
   }

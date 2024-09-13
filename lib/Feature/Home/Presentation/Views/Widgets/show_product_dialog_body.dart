@@ -20,12 +20,12 @@ class ShowProductDialogBody extends StatelessWidget
         children: [
           productModel.imagesUrls.length == 1 ? Padding(
             padding: EdgeInsets.all(16.h),
-            child: CustomProductSingleImage(productModel: productModel, height: 250),
+            child: CustomProductSingleImage(productModel: productModel, height: 350),
           ) : ProductImageDialog(imagesUrls: productModel.imagesUrls),
 
           productModel.imagesUrls.length == 1 ? const SizedBox.shrink() : SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 
-          Text(productModel.productName, style: TextStyle(color: black, fontWeight: FontWeight.w700, fontSize: 20.sp), textAlign: TextAlign.center),
+          Text(productModel.productName, style: TextStyle(color: black, fontWeight: FontWeight.w600, fontSize: 18.sp), textAlign: TextAlign.center),
 
           Text('\$ ${productModel.productPrice}', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 18.sp), textAlign: TextAlign.center),
         ],

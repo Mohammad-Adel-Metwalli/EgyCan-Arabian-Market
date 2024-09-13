@@ -18,13 +18,9 @@ class _ProductsListViewState extends State<ProductsListView>
   @override
   Widget build(BuildContext context)
   {
-    return MediaQuery.sizeOf(context).width <= 500 ? ListView.builder(
+    return ListView.builder(
       itemCount: widget.allProducts.length,
-      itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : (widget.allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) || widget.allProducts[index].subCategory.contains(widget.chosenSubCategory) ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : const SizedBox.shrink()),
-    ) : GridView.builder(
-      itemCount: widget.allProducts.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisSpacing: 2, crossAxisSpacing: 2, childAspectRatio: 1.1),
-      itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : (widget.allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) || widget.allProducts[index].subCategory.contains(widget.chosenSubCategory) ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : const SizedBox.shrink()),
+      itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : (widget.allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) && widget.allProducts[index].subCategory.contains(widget.chosenSubCategory) ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : const SizedBox.shrink()),
     );
   }
 }

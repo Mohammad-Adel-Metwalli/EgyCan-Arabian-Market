@@ -13,7 +13,7 @@ class ProductName extends StatelessWidget
     return SizedBox(
       height: 50.h,
       width: double.infinity,
-      child: Center(child: Text(productName, style: TextStyle(color: black, fontWeight: FontWeight.w600, fontSize: 20.sp), maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.start)),
+      child: Center(child: Text(productName, style: TextStyle(color: black, fontWeight: FontWeight.w600, fontSize: 18.sp), maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center)),
     );
   }
 }

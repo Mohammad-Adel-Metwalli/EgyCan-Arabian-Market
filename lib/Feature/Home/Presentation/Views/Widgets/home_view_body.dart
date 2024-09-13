@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:egycan_app/Core/Utils/constant_colors.dart';
 import 'package:egycan_app/Core/Widgets/custom_progress_indicator.dart';
-import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/Widgets/custom_search_bar.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Manager/All%20Categories%20Cubit/all_categories_cubit.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/site_images.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/site_images_dots.dart';
@@ -23,7 +22,6 @@ class _HomeViewBodyState extends State<HomeViewBody>
 {
   List<dynamic> categoryValues = [];
   List<String> categoryKeys = [];
-  String searchedProduct = '';
   int indexOfSiteImages = 0;
 
   @override
@@ -44,14 +42,7 @@ class _HomeViewBodyState extends State<HomeViewBody>
 
           Center(child: SiteImagesDots(indexOfSiteImages: indexOfSiteImages)),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
-
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width <= 500 ? 50.w : 300.w),
-            child: CustomSearchBar(onChanged: (data) => setState(() => searchedProduct = data)),
-          ),
-
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.025),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.04),
 
           BlocConsumer<AllCategoriesCubit, AllCategoriesState>(
             listener: (context, state)
@@ -67,7 +58,7 @@ class _HomeViewBodyState extends State<HomeViewBody>
             {
               if(state is AllCategoriesSuccess)
               {
-                return FadeInUpBig(child: AllCategoriesAndProducts(categoryKeys: categoryKeys, categoryValues: categoryValues, searchedProduct: searchedProduct));
+                return FadeInUpBig(child: AllCategoriesAndProducts(categoryKeys: categoryKeys, categoryValues: categoryValues));
               }
 
               else

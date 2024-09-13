@@ -18,7 +18,7 @@ class ProductImage extends StatelessWidget
         borderRadius: BorderRadius.circular(25),
         child: CachedNetworkImage(
           height: 220.h,
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
           width: double.infinity,
           imageUrl: productModel.imagesUrls[0],
         ),

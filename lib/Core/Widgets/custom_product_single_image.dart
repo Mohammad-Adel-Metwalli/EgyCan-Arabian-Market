@@ -17,7 +17,7 @@ class CustomProductSingleImage extends StatelessWidget
       child: CachedNetworkImage(
         height: height.h,
         width: double.infinity,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
         imageUrl: productModel.imagesUrls[0],
       ),
     );

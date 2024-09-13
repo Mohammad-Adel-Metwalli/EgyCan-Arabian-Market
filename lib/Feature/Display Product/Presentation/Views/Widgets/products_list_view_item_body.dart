@@ -21,7 +21,9 @@ class ProductsListViewItemBody extends StatelessWidget
           child: CustomProductSingleImage(productModel: allProducts[index], height: 300),
         ),
 
-        Text(allProducts[index].productName, style: Styles.styleOfTitleBlack, textAlign: TextAlign.center),
+        Text(allProducts[index].productName, style: Styles.styleOfTitleBlack18, textAlign: TextAlign.center),
+
+        Text(allProducts[index].subCategory, textAlign: TextAlign.center),
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 

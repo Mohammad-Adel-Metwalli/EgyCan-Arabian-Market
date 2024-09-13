@@ -3,9 +3,8 @@ import 'all_categories_and_products_item.dart';
 
 class AllCategoriesAndProducts extends StatelessWidget
 {
-  const AllCategoriesAndProducts({super.key, required this.categoryKeys, required this.categoryValues, required this.searchedProduct,});
+  const AllCategoriesAndProducts({super.key, required this.categoryKeys, required this.categoryValues,});
   final List<String> categoryKeys;
-  final String searchedProduct;
   final List categoryValues;
 
   @override
@@ -21,7 +20,7 @@ class AllCategoriesAndProducts extends StatelessWidget
         List<dynamic> subCategory = categoryValues[index];
         subCategory = subCategory.sublist(1, subCategory.length);
 
-        return AllCategoriesAndProductsItem(categoryValues: categoryValues, searchedProduct: searchedProduct, categoryKeys: categoryKeys, index: index);
+        return AllCategoriesAndProductsItem(categoryValues: categoryValues, categoryKeys: categoryKeys, index: index);
       },
     );
   }

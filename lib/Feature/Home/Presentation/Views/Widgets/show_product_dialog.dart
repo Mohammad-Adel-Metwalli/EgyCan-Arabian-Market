@@ -17,8 +17,8 @@ class ShowProductDialog extends StatelessWidget
       backgroundColor: white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
       child: SizedBox(
-        height: 365.h,
-        width: 500.w,
+        height: 500.h,
+        width: 800.w,
         child: ShowProductDialogBody(productModel: productModel, index: index),
       ),
     );
