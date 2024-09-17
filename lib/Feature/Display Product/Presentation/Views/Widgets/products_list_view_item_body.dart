@@ -20,7 +20,7 @@ class ProductsListViewItemBody extends StatelessWidget
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CustomProductSingleImage(productModel: allProducts[index], height: MediaQuery.sizeOf(context).width <= 1040 ? 175 : 300, width: double.infinity),
+          child: CustomProductSingleImage(productModel: allProducts[index], height: MediaQuery.sizeOf(context).width <= 1040 ? 175 : 200, width: double.infinity),
         ),
 
         SizedBox(

@@ -18,10 +18,10 @@ class AllCategoriesAndProductsItem extends StatelessWidget
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CategoryTitle(title: categoryValues[index][0]),
 
+            SizedBox(width: MediaQuery.sizeOf(context).width * 0.005),
 
             ShowProductsOfCategory(
               onPressed: () => GoRouter.of(context).replace(

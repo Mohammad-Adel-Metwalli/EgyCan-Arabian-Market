@@ -15,7 +15,7 @@ class EgycanTitleAndContactUsButton extends StatelessWidget
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        EgyCanTitle(size: MediaQuery.sizeOf(context).width <= 1016 ? 40 : 60, fontColor: white),
+        EgyCanTitle(size: MediaQuery.sizeOf(context).width <= 1040 ? 40 : 60, fontColor: white),
 
         Row(
           children: [

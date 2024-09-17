@@ -10,6 +10,7 @@ abstract class AssetsData
     'Instagram': Image(image: const AssetImage('Assets/Images/Instagram-icon.png'), height: 35.h),
     'WhatsApp': Icon(FontAwesome.whatsapp_brand ,size: 35.h, color: green),
     'Location': Image(image: const AssetImage('Assets/Images/world-icon.png'), height: 35.h),
+    'TikTok': Brand(Brands.tiktok, size: 35.h),
   };
 
   static final List<String> socialMediaLinks = [
@@ -17,6 +18,7 @@ abstract class AssetsData
     'https://www.instagram.com/egycanfoods2003/',
     'https://wa.me/17788615330',
     'https://www.google.com/maps/place/13811+Central+Ave,+Surrey,+BC+V3T+5B5,+Canada/@49.18982,-122.8424849,17z/data=!3m1!4b1!4m6!3m5!1s0x5485d77fa5ad697d:0x5c1d59a0c7f356d1!8m2!3d49.18982!4d-122.83991!16s%2Fg%2F11fb3jlk8c?entry=ttu',
+    'https://www.tiktok.com/@egycan.middle.east?_t=8pnWeN8s3Gh&_r=1',
   ];
 
   static final List<String> categories = [

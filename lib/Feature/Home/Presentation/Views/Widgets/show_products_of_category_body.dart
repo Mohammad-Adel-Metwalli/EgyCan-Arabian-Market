@@ -14,9 +14,9 @@ class ShowProductsOfCategoryBody extends StatelessWidget
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('View All', style: GoogleFonts.raleway(color: black, fontWeight: FontWeight.bold, fontSize: 17.sp)),
+          Text('View All', style: GoogleFonts.raleway(color: white, fontWeight: FontWeight.bold, fontSize: 17.sp)),
 
-          Icon(Icons.chevron_right_rounded, color: blue, size: 30.h),
+          Icon(Icons.chevron_right_rounded, color: white, size: 30.h),
         ],
       ),
     );

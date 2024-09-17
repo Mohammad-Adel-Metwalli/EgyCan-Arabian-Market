@@ -29,8 +29,9 @@ class _ProductsListViewState extends State<ProductsListView>
     }).toList();
 
     return GridView.builder(
+      shrinkWrap: true,
       itemCount: widget.searchedProduct == '' && widget.chosenSubCategory == '' ? widget.allProducts.length : allProducts.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: MediaQuery.sizeOf(context).width <= 500 ? 2 : 4, childAspectRatio: MediaQuery.sizeOf(context).width <= 500 ? 0.6 : (MediaQuery.sizeOf(context).width <= 1040 ? 0.66 : 0.8)),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: MediaQuery.sizeOf(context).width <= 500 ? 2 : 6, childAspectRatio: MediaQuery.sizeOf(context).width <= 500 ? 0.6 : (MediaQuery.sizeOf(context).width <= 1040 ? 0.45 : 0.6)),
       itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : (allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) && allProducts[index].subCategory.contains(widget.chosenSubCategory) ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: allProducts, index: index) : const SizedBox.shrink()),
     );
   }

@@ -33,40 +33,35 @@ class _DisplayProductViewBodyState extends State<DisplayProductViewBody>
   @override
   Widget build(BuildContext context)
   {
-    return Column(
-      children: [
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 
-        FadeInDownBig(child: CustomSearchBar(onChanged: (data) => setState(() => searchedProduct = data))),
+          FadeInDownBig(child: CustomSearchBar(onChanged: (data) => setState(() => searchedProduct = data))),
 
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 
-        SubCategoryDropDown(
-          products: products,
-          onChanged: (data) => setState(() => chosenSubCategory = data!),
-        ),
+          SubCategoryDropDown(
+            products: products,
+            onChanged: (data) => setState(() => chosenSubCategory = data!),
+          ),
 
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 
-        BlocConsumer<AllProductsCubit, AllProductsState>(
-          listener: (context, state)
-          {
-            if(state is AllProductsSuccess)
+          BlocConsumer<AllProductsCubit, AllProductsState>(
+            listener: (context, state)
             {
-              allProducts = state.allProducts.where((product) => product.category == widget.categoryTitleAndProducts['title']).toList();
-            }
-          },
+              if(state is AllProductsSuccess)
+              {
+                allProducts = state.allProducts.where((product) => product.category == widget.categoryTitleAndProducts['title']).toList();
+              }
+            },
 
-          builder: (context, state)
-          {
-            return Expanded(
-              child: FadeInUpBig(
-                child: ProductsListView(searchedProduct: searchedProduct, chosenSubCategory: chosenSubCategory, categoryTitle: widget.categoryTitleAndProducts['title'], allProducts: allProducts),
-              ),
-            );
-          },
-        ),
-      ],
+            builder: (context, state) => FadeInUpBig(child: ProductsListView(searchedProduct: searchedProduct, chosenSubCategory: chosenSubCategory, categoryTitle: widget.categoryTitleAndProducts['title'], allProducts: allProducts)),
+          ),
+        ],
+      ),
     );
   }
 }
