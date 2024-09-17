@@ -14,9 +14,9 @@ class ShowMoreButtonBody extends StatelessWidget
       children: [
         SizedBox(width: MediaQuery.sizeOf(context).width * 0.01),
 
-        Text('Show more', style: TextStyle(color: white, fontSize: 20.sp, fontWeight: FontWeight.w400)),
+        Text('Show more', style: TextStyle(color: white, fontSize: MediaQuery.sizeOf(context).width <= 500 ? 14.sp : 20.sp, fontWeight: FontWeight.w400)),
 
-        Icon(Icons.chevron_right_rounded, color: white, size: 35.h),
+        Icon(Icons.chevron_right_rounded, color: white, size: MediaQuery.sizeOf(context).width <= 500 ? 20.h : 35.h),
       ],
     );
   }

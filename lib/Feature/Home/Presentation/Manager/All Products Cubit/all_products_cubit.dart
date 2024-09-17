@@ -19,7 +19,7 @@ class AllProductsCubit extends Cubit<AllProductsState>
       {
         allProducts.add(ProductModel(
           productName: product['productName'],
-          productPrice: product['productPrice'],
+          productPrice: double.parse(product['productPrice'].toString()),
           category: product['category'],
           subCategory: product['subCategory'],
           imagesUrls: product['imagesUrls'],

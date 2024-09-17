@@ -19,7 +19,7 @@ class ProductsListViewItem extends StatelessWidget
       child: Container(
         decoration: BoxDecoration(
           color: white,
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: MediaQuery.sizeOf(context).width <= 500 ? BorderRadius.circular(15) : BorderRadius.circular(25),
           border: Border.all(color: pyramidsColor, width: 3.5),
         ),
 

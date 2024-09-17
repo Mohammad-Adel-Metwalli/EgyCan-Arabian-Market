@@ -5,18 +5,18 @@ import '../../Feature/Data/Repositories/Models/product_model.dart';
 
 class CustomProductSingleImage extends StatelessWidget
 {
-  const CustomProductSingleImage({super.key, required this.productModel, required this.height,});
+  const CustomProductSingleImage({super.key, required this.productModel, required this.height, required this.width,});
   final ProductModel productModel;
-  final double height;
+  final double height, width;
 
   @override
   Widget build(BuildContext context)
   {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(25),
+      borderRadius: MediaQuery.sizeOf(context).width <= 500 ? BorderRadius.circular(0) : BorderRadius.circular(25),
       child: CachedNetworkImage(
         height: height.h,
-        width: double.infinity,
+        width: width.w,
         fit: BoxFit.contain,
         imageUrl: productModel.imagesUrls[0],
       ),

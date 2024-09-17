@@ -1,6 +1,7 @@
 import 'package:egycan_app/Core/Utils/styles.dart';
 import 'package:egycan_app/Core/Widgets/show_more_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../Core/Widgets/custom_product_single_image.dart';
 import '../../../../Data/Repositories/Models/product_model.dart';
 
@@ -15,21 +16,25 @@ class ProductsListViewItemBody extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CustomProductSingleImage(productModel: allProducts[index], height: 300),
+          child: CustomProductSingleImage(productModel: allProducts[index], height: MediaQuery.sizeOf(context).width <= 1040 ? 175 : 300, width: double.infinity),
         ),
 
-        Text(allProducts[index].productName, style: Styles.styleOfTitleBlack18, textAlign: TextAlign.center),
+        SizedBox(
+          width: double.infinity,
+          child: Text(allProducts[index].productName, style: MediaQuery.sizeOf(context).width <= 500 ? Styles.styleOfTitleBlack12 : Styles.styleOfTitleBlack18, textAlign: TextAlign.center, overflow: TextOverflow.ellipsis, maxLines: 1),
+        ),
 
         Text(allProducts[index].subCategory, textAlign: TextAlign.center),
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ShowMoreButton(index: index, productModel: allProducts[index]),
+          padding: MediaQuery.sizeOf(context).width <= 500 ? EdgeInsets.symmetric(horizontal: 20.w) : const EdgeInsets.all(8.0),
+          child: ShowMoreButton(index: index, productModel: allProducts[index], height: 40),
         ),
       ],
     );

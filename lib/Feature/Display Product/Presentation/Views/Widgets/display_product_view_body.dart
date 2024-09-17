@@ -53,7 +53,7 @@ class _DisplayProductViewBodyState extends State<DisplayProductViewBody>
           {
             if(state is AllProductsSuccess)
             {
-              allProducts = state.allProducts;
+              allProducts = state.allProducts.where((product) => product.category == widget.categoryTitleAndProducts['title']).toList();
             }
           },
 

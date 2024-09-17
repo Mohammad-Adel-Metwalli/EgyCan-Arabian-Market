@@ -8,8 +8,9 @@ import '../Utils/constant_colors.dart';
 
 class ShowMoreButton extends StatelessWidget
 {
-  const ShowMoreButton({super.key, required this.index, required this.productModel,});
+  const ShowMoreButton({super.key, required this.index, required this.productModel, this.width, this.height = 50});
   final ProductModel productModel;
+  final double? height, width;
   final int index;
 
   @override
@@ -17,7 +18,8 @@ class ShowMoreButton extends StatelessWidget
   {
     return MaterialButton(
       color: blue,
-      height: 50.h,
+      height: height?.h,
+      minWidth: width?.w,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       onPressed: () => showDialog(
         context: context,
