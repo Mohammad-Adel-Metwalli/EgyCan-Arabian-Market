@@ -13,16 +13,19 @@ class SocialMediaList extends StatelessWidget
     return SizedBox(
       height: 100.h,
       width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(
-          AssetsData.socialMedia.length, (index)
-          {
-            List<String> socialMediaTitles = AssetsData.socialMedia.keys.toList();
-            List<dynamic> socialMediaIcons = AssetsData.socialMedia.values.toList();
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            AssetsData.socialMedia.length, (index)
+            {
+              List<String> socialMediaTitles = AssetsData.socialMedia.keys.toList();
+              List<dynamic> socialMediaIcons = AssetsData.socialMedia.values.toList();
 
-            return SocialMediaListItem(socialMediaIcons: socialMediaIcons, socialMediaTitles: socialMediaTitles, index: index);
-          },
+              return SocialMediaListItem(socialMediaIcons: socialMediaIcons, socialMediaTitles: socialMediaTitles, index: index);
+            },
+          ),
         ),
       ),
     );

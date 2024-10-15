@@ -1,4 +1,5 @@
 import 'package:egycan_app/Core/Utils/constants.dart';
+import 'package:egycan_app/Feature/Cart/Presentation/Views/cart_view.dart';
 import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/display_product_view.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Manager/All%20Categories%20Cubit/all_categories_cubit.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Manager/All%20Products%20Cubit/all_products_cubit.dart';
@@ -28,6 +29,11 @@ abstract class AppRouter
           create: (context) => AllProductsCubit(),
           child: DisplayProductView(categoryTitleAndProducts: state.extra as Map<dynamic, dynamic>),
         ),
+      ),
+
+      GoRoute(
+        path: cartViewPath,
+        builder: (context, state) => const CartView(),
       ),
     ],
   );

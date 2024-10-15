@@ -3,7 +3,7 @@ import 'package:egycan_app/Core/Utils/constant_colors.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Manager/All%20Categories%20Cubit/all_categories_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'Widgets/custom_home_app_bar.dart';
+import 'Widgets/custom_home_fab.dart';
 import 'Widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget
@@ -49,13 +49,8 @@ class _HomeViewState extends State<HomeView>
   {
     return Scaffold(
       backgroundColor: white,
-      body: Stack(
-        children: [
-          FadeInUpBig(child: const HomeViewBody()),
-
-          FadeInDownBig(child: const CustomHomeAppBar()),
-        ],
-      ),
+      floatingActionButton: const CustomHomeFAB(),
+      body: FadeInUpBig(child: const HomeViewBody()),
     );
   }
 }

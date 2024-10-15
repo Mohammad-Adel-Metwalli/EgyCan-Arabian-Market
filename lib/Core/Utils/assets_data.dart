@@ -88,4 +88,6 @@ abstract class AssetsData
     'Assets/Images/Image-11.jpg',
     'Assets/Images/Image-12.jpg',
   ];
+
+  static int quantity = 0;
 }

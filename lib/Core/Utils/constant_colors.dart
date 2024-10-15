@@ -13,3 +13,4 @@ const blue = Color(0xff0866FF);
 const green = Colors.green;
 const lightBlue = Color(0xff6699CC);
 const grey = Colors.grey;
+const red = Colors.red;

@@ -6,9 +6,9 @@ import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/site_images.d
 import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/site_images_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'all_categories_and_products.dart';
 import 'contact_us_button.dart';
+import 'custom_home_app_bar.dart';
 
 class HomeViewBody extends StatefulWidget
 {
@@ -28,10 +28,14 @@ class _HomeViewBodyState extends State<HomeViewBody>
   Widget build(BuildContext context)
   {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).width <= 500 ? 150.h : 210.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: CustomHomeAppBar(),
+          ),
+
           MediaQuery.sizeOf(context).width <= 500 ? const Center(child: ContactUsButton()) : const SizedBox.shrink(),
 
           MediaQuery.sizeOf(context).width <= 500 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.02) : const SizedBox.shrink(),
