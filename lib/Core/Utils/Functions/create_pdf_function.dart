@@ -1,16 +1,14 @@
-import 'dart:io';
 import 'package:egycan_app/Core/Utils/Functions/total_invoice_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import '../../../Feature/Cart/Data/Repositories/Models/cart_model.dart';
 import '../constant_colors.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-Future<String> createPdfFunction({required List<CartModel> allCartProducts, required BuildContext context, required String username, required String location}) async
+Future<void> createPdfFunction({required List<CartModel> allCartProducts, required BuildContext context, required String username, required String location}) async
 {
   final pdf = pw.Document();
   final ralewayFontBold = await PdfGoogleFonts.ralewayBlack();
@@ -109,9 +107,7 @@ Future<String> createPdfFunction({required List<CartModel> allCartProducts, requ
   );
 
   // Save the PDF as a file
-  final output = await getExternalStorageDirectory();
-  final file = File("${output?.absolute.path}/EgyCan Invoice Payment.pdf");
-  await file.writeAsBytes(await pdf.save());
+  await Printing.sharePdf(bytes: await pdf.save(), filename: 'EgyCan Invoice Payment');
 
-  return file.path;
+  // return file.path;
 }

@@ -1,7 +1,6 @@
 import 'package:egycan_app/Core/Utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../../../../Core/Utils/Functions/create_pdf_function.dart';
 import '../../../../../Core/Utils/constant_colors.dart';
 import '../../../../../Core/Utils/singleton_shared_preferences.dart';
@@ -51,9 +50,7 @@ class _CheckoutButtonState extends State<CheckoutButton>
 
           else
           {
-            String egycanPdfInvoicePath = await createPdfFunction(allCartProducts: widget.allCartProducts, context: context, username: username!, location: location!);
-            XFile xFile = XFile(egycanPdfInvoicePath);
-            await Share.shareXFiles([xFile], text: 'EgyCan Invoice Payment');
+            await createPdfFunction(allCartProducts: widget.allCartProducts, context: context, username: username!, location: location!);
           }
         },
       ),
