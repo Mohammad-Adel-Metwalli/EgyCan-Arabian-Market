@@ -8,7 +8,7 @@ import '../../../Feature/Cart/Data/Repositories/Models/cart_model.dart';
 import '../constant_colors.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-Future<void> createPdfFunction({required List<CartModel> allCartProducts, required BuildContext context, required String username, required String location}) async
+Future<void> createPdfAndShareItFunction({required List<CartModel> allCartProducts, required BuildContext context, required String username, required String location}) async
 {
   final pdf = pw.Document();
   final ralewayFontBold = await PdfGoogleFonts.ralewayBlack();
@@ -106,8 +106,5 @@ Future<void> createPdfFunction({required List<CartModel> allCartProducts, requir
     ),
   );
 
-  // Save the PDF as a file
   await Printing.sharePdf(bytes: await pdf.save(), filename: 'EgyCan Invoice Payment');
-
-  // return file.path;
 }

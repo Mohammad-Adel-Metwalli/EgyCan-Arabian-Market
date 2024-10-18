@@ -50,7 +50,7 @@ class _CheckoutButtonState extends State<CheckoutButton>
 
           else
           {
-            await createPdfFunction(allCartProducts: widget.allCartProducts, context: context, username: username!, location: location!);
+            await createPdfAndShareItFunction(allCartProducts: widget.allCartProducts, context: context, username: username!, location: location!);
           }
         },
       ),

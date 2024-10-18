@@ -33,7 +33,7 @@ class _ContinueButtonState extends State<ContinueButton>
         {
           String? username = SingletonSharedPreferences.instance.getString('username');
           String? location = SingletonSharedPreferences.instance.getString('location');
-          await createPdfFunction(allCartProducts: widget.allCartProducts, context: context, username: username!, location: location!);
+          await createPdfAndShareItFunction(allCartProducts: widget.allCartProducts, context: context, username: username!, location: location!);
           popOut();
         },
       ),
