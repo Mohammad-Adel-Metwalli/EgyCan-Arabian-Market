@@ -106,5 +106,5 @@ Future<void> createPdfAndShareItFunction({required List<CartModel> allCartProduc
     ),
   );
 
-  await Printing.sharePdf(bytes: await pdf.save(), filename: 'EgyCan Invoice Payment');
+  await Printing.sharePdf(bytes: await pdf.save(), filename: 'EgyCan Invoice Payment.pdf');
 }

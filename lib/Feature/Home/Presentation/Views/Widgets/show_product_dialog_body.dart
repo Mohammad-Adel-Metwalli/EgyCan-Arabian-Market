@@ -33,6 +33,8 @@ class _ShowProductDialogBodyState extends State<ShowProductDialogBody>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 20.h),
+
             widget.productModel.imagesUrls.length == 1 ? Padding(
               padding: EdgeInsets.all(16.h),
               child: CustomProductSingleImage(productModel: widget.productModel, height: 350, width: double.infinity),
