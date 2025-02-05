@@ -22,7 +22,7 @@ class _VerticalCartTotalAndQuantityState extends State<VerticalCartTotalAndQuant
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Total = ${(widget.cartProducts[widget.index].productModel.productPrice * widget.cartProducts[widget.index].quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
+        Text('Total = ${(double.parse(widget.cartProducts[widget.index].productModel.productPrice) * widget.cartProducts[widget.index].quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
 
         IconButton(
           onPressed: () => setState(()

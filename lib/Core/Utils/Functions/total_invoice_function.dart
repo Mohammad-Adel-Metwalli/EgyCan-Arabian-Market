@@ -5,7 +5,8 @@ double totalInvoiceFunction({required List<CartModel> allCartProducts})
   double total = 0;
   for(int i = 0; i < allCartProducts.length; i++)
   {
-    total += allCartProducts[i].quantity * allCartProducts[i].productModel.productPrice;
+    double price = double.parse(allCartProducts[i].productModel.productPrice);
+    total += allCartProducts[i].quantity * price;
   }
 
   return total;

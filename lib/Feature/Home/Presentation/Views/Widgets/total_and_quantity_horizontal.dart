@@ -22,7 +22,7 @@ class _TotalAndQuantityHorizontalState extends State<TotalAndQuantityHorizontal>
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Total = ${(widget.productModel.productPrice * AssetsData.quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
+        Text('Total = ${(double.parse(widget.productModel.productPrice) * AssetsData.quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
 
         SizedBox(width: MediaQuery.sizeOf(context).width * 0.2),
 

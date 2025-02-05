@@ -1,4 +1,3 @@
-import 'package:egycan_app/Core/Widgets/custom_product_single_image.dart';
 import 'package:egycan_app/Feature/Cart/Data/Repositories/Models/cart_model.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Manager/FAB%20Cart%20Cubit/fab_cart_cubit.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/product_image_dialog.dart';
@@ -35,12 +34,9 @@ class _ShowProductDialogBodyState extends State<ShowProductDialogBody>
           children: [
             SizedBox(height: 20.h),
 
-            widget.productModel.imagesUrls.length == 1 ? Padding(
-              padding: EdgeInsets.all(16.h),
-              child: CustomProductSingleImage(productModel: widget.productModel, height: 350, width: double.infinity),
-            ) : ProductImageDialog(imagesUrls: widget.productModel.imagesUrls),
+            ProductImageDialog(imageUrl: widget.productModel.imageUrl),
 
-            widget.productModel.imagesUrls.length == 1 ? const SizedBox.shrink() : SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 
             Text(widget.productModel.productName, style: TextStyle(color: black, fontWeight: FontWeight.w600, fontSize: 16.sp), textAlign: TextAlign.center),
 
@@ -65,7 +61,7 @@ class _ShowProductDialogBodyState extends State<ShowProductDialogBody>
                   productModel: widget.productModel,
                   onPressed: ()
                   {
-                    CartModel cartModel = CartModel(productModel: widget.productModel, total: widget.productModel.productPrice * AssetsData.quantity, quantity: AssetsData.quantity);
+                    CartModel cartModel = CartModel(productModel: widget.productModel, total: double.parse(widget.productModel.productPrice) * AssetsData.quantity, quantity: AssetsData.quantity);
                     BlocProvider.of<FabCartCubit>(context).addToCart(cartModel: cartModel);
                   },
                 );

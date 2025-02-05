@@ -1,8 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:egycan_app/Core/Utils/constant_colors.dart';
-import 'package:egycan_app/Feature/Home/Presentation/Manager/All%20Categories%20Cubit/all_categories_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Widgets/custom_home_fab.dart';
 import 'Widgets/home_view_body.dart';
 
@@ -16,13 +14,6 @@ class HomeView extends StatefulWidget
 
 class _HomeViewState extends State<HomeView>
 {
-  @override
-  void initState()
-  {
-    super.initState();
-    BlocProvider.of<AllCategoriesCubit>(context).fetchAllCategories();
-  }
-
   @override
   void didChangeDependencies()
   {

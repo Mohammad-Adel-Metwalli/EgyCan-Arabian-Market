@@ -1,23 +1,24 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+
+import '../../../../../Core/Utils/constant_colors.dart';
 
 class ProductImageDialogItem extends StatelessWidget
 {
-  const ProductImageDialogItem({super.key, required this.imagesUrls, required this.index,});
-  final List<dynamic> imagesUrls;
-  final int index;
+  const ProductImageDialogItem({super.key, required this.imageUrl,});
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context)
   {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(25),
-      child: CachedNetworkImage(
-        fit: BoxFit.contain,
-        imageUrl: imagesUrls[index],
-        height: MediaQuery.sizeOf(context).width <= 500 ? 140.h : 250.h,
-        width: MediaQuery.sizeOf(context).width <= 500 ? 300.w : 425.w,
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Center(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: imageUrl == '' || !(imageUrl.contains('iframe')) ? Icon(Icons.image_not_supported_outlined, color: red, size: 80.h) : HtmlWidget(imageUrl, enableCaching: true),
+        ),
       ),
     );
   }

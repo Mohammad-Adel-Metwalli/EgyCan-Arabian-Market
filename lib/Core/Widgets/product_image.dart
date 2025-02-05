@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import '../../Feature/Data/Repositories/Models/product_model.dart';
+import '../Utils/constant_colors.dart';
 
 class ProductImage extends StatelessWidget
 {
@@ -13,15 +14,10 @@ class ProductImage extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Padding(
-      padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 10.h),
+      padding: const EdgeInsets.all(16),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(25),
-        child: CachedNetworkImage(
-          height: 220.h,
-          fit: BoxFit.contain,
-          width: double.infinity,
-          imageUrl: productModel.imagesUrls[0],
-        ),
+        borderRadius: BorderRadius.circular(20),
+        child: productModel.imageUrl == '' || !(productModel.imageUrl.contains('iframe')) ? Icon(Icons.image_not_supported_outlined, color: red, size: 80.h) : AbsorbPointer(absorbing: true, child: HtmlWidget(productModel.imageUrl, enableCaching: true)),
       ),
     );
   }

@@ -5,10 +5,8 @@ import 'package:egycan_app/Feature/Home/Presentation/Manager/FAB%20Cart%20Cubit/
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../Core/Utils/constant_colors.dart';
-import 'cart_button.dart';
 
 class CustomHomeFAB extends StatefulWidget
 {
@@ -37,21 +35,10 @@ class _CustomHomeFABState extends State<CustomHomeFAB>
       builder: (context, state)
       {
         return FadeInRightBig(
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              FloatingActionButton(
-                onPressed: () => GoRouter.of(context).push(cartViewPath),
-                backgroundColor: pyramidsColor,
-                child: const Icon(CupertinoIcons.bag_fill, color: white),
-              ),
-
-              Positioned(
-                bottom: 35.h,
-                right: 35.w,
-                child: CartButton(cartProducts: myCart.length),
-              ),
-            ],
+          child: FloatingActionButton(
+            onPressed: () => GoRouter.of(context).push(cartViewPath),
+            backgroundColor: pyramidsColor,
+            child: const Icon(CupertinoIcons.bag_fill, color: white),
           ),
         );
       },

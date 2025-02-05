@@ -1,17 +1,25 @@
 import 'package:egycan_app/Core/Utils/constants.dart';
+import 'package:egycan_app/Feature/Data/Repositories/Models/product_model.dart';
 import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/show_products_of_category.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../Core/Widgets/category_list_view.dart';
 import '../../../../../Core/Widgets/category_title.dart';
 
-class AllCategoriesAndProductsItem extends StatelessWidget
+class AllCategoriesAndProductsItem extends StatefulWidget
 {
-  const AllCategoriesAndProductsItem({super.key, required this.categoryValues, required this.categoryKeys, required this.index,});
+  const AllCategoriesAndProductsItem({super.key, required this.categoriesTitles, required this.index, this.allRows, required this.allProducts,});
+  final List<String>? categoriesTitles;
+  final Map<String, List<ProductModel>> allProducts;
+  final List<List<String>>? allRows;
   final int index;
-  final List categoryValues;
-  final List<String> categoryKeys;
 
+  @override
+  State<AllCategoriesAndProductsItem> createState() => _AllCategoriesAndProductsItemState();
+}
+
+class _AllCategoriesAndProductsItemState extends State<AllCategoriesAndProductsItem>
+{
   @override
   Widget build(BuildContext context)
   {
@@ -19,7 +27,7 @@ class AllCategoriesAndProductsItem extends StatelessWidget
       children: [
         Row(
           children: [
-            CategoryTitle(title: categoryValues[index][0]),
+            CategoryTitle(title: widget.categoriesTitles![widget.index]),
 
             SizedBox(width: MediaQuery.sizeOf(context).width * 0.005),
 
@@ -27,8 +35,8 @@ class AllCategoriesAndProductsItem extends StatelessWidget
               onPressed: () => GoRouter.of(context).replace(
                 displayProductViewPath,
                 extra: {
-                  'title': categoryValues[index][0],
-                  'products': categoryValues[index],
+                  'title': widget.categoriesTitles?[widget.index],
+                  'products': widget.allProducts[widget.categoriesTitles?[widget.index]],
                 },
               ),
             ),
@@ -37,9 +45,9 @@ class AllCategoriesAndProductsItem extends StatelessWidget
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.035),
 
-        CategoryListView(categoryTitle: categoryValues[index][0]),
+        CategoryListView(categoryTitle: widget.categoriesTitles![widget.index], allProducts: widget.allProducts[widget.categoriesTitles![widget.index]]?? []),
 
-        index == categoryKeys.length - 1 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.035) : const SizedBox.shrink(),
+        SizedBox(height: MediaQuery.sizeOf(context).height * 0.035),
       ],
     );
   }

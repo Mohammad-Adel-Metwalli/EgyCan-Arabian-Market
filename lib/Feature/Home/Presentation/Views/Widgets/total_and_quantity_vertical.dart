@@ -43,7 +43,7 @@ class _TotalAndQuantityVerticalState extends State<TotalAndQuantityVertical> {
           ],
         ),
 
-        Text('Total = ${(widget.productModel.productPrice * AssetsData.quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
+        Text('Total = ${(double.parse(widget.productModel.productPrice) * AssetsData.quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
       ],

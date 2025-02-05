@@ -27,7 +27,7 @@ class _HorizontalCartTotalAndQuantityState extends State<HorizontalCartTotalAndQ
       children: [
         Text(widget.cartProducts[widget.index].productModel.productName, style: TextStyle(fontSize: 15.sp, overflow: TextOverflow.ellipsis), maxLines: 1, textAlign: TextAlign.center),
 
-        Text('Total = ${(widget.cartProducts[widget.index].productModel.productPrice * widget.cartProducts[widget.index].quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
+        Text('Total = ${(double.parse(widget.cartProducts[widget.index].productModel.productPrice) * widget.cartProducts[widget.index].quantity).toStringAsFixed(2)} \$', style: TextStyle(color: green, fontWeight: FontWeight.w700, fontSize: 20.sp)),
 
         Row(
           children: [

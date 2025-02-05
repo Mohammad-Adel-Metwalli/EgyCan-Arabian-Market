@@ -24,7 +24,7 @@ class _CartProductsItemBodyVerticalState extends State<CartProductsItemBodyVerti
   {
     return Column(
       children: [
-        ProductCartImage(imageUrl: widget.cartProducts[widget.index].productModel.imagesUrls[0]),
+        ProductCartImage(productModel: widget.cartProducts[widget.index].productModel),
 
         SizedBox(
           width: double.infinity,

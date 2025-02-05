@@ -18,10 +18,7 @@ class ProductsListViewItemBody extends StatelessWidget
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CustomProductSingleImage(productModel: allProducts[index], height: MediaQuery.sizeOf(context).width <= 1040 ? 175 : 200, width: double.infinity),
-        ),
+        CustomProductSingleImage(productModel: allProducts[index], height: MediaQuery.sizeOf(context).width <= 1040 ? 175.h : 300.h, width: double.infinity),
 
         SizedBox(
           width: double.infinity,
