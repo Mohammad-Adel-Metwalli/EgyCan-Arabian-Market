@@ -33,7 +33,7 @@ class _AllCategoriesAndProductsItemState extends State<AllCategoriesAndProductsI
 
             ShowProductsOfCategory(
               onPressed: () => GoRouter.of(context).replace(
-                displayProductViewPath,
+                displayProductsViewPath,
                 extra: {
                   'title': widget.categoriesTitles?[widget.index],
                   'products': widget.allProducts[widget.categoriesTitles?[widget.index]],

@@ -1,12 +1,9 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:egycan_app/Core/Utils/assets_data.dart';
+import 'package:egycan_app/Core/Utils/constants.dart';
 import 'package:egycan_app/Core/Widgets/show_more_button_body.dart';
-import 'package:egycan_app/Feature/Home/Presentation/Manager/FAB%20Cart%20Cubit/fab_cart_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../Feature/Data/Repositories/Models/product_model.dart';
-import '../../Feature/Home/Presentation/Views/Widgets/show_product_dialog.dart';
 import '../Utils/constant_colors.dart';
 
 class ShowMoreButton extends StatefulWidget
@@ -30,19 +27,7 @@ class _ShowMoreButtonState extends State<ShowMoreButton>
       height: widget.height?.h,
       minWidth: widget.width?.w,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-      onPressed: ()
-      {
-        var fabCartCubit = context.read<FabCartCubit>();
-
-        showDialog(
-          context: context,
-          builder: (context) => BlocProvider.value(
-            value: fabCartCubit,
-            child: ZoomIn(child: ShowProductDialog(index: widget.index, productModel: widget.productModel)),
-          ),
-        ).then((_) => setState(() => AssetsData.quantity = 0));
-      },
-
+      onPressed: () => GoRouter.of(context).push(viewProductViewPath, extra: widget.productModel),
       child: const ShowMoreButtonBody(),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/Widgets/products_list_view_item.dart';
+import 'package:egycan_app/Feature/Display%20Products/Presentation/Views/Widgets/products_list_view_item.dart';
 import '../../../../Data/Repositories/Models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

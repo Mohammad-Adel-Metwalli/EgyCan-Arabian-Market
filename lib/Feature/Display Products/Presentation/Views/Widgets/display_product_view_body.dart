@@ -1,11 +1,10 @@
-import 'dart:developer';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:egycan_app/Feature/Data/Repositories/Models/product_model.dart';
-import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/Widgets/custom_search_bar.dart';
-import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/Widgets/products_list_view.dart';
-import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/Widgets/sub_category_drop_down.dart';
+import 'package:egycan_app/Feature/Display%20Products/Presentation/Views/Widgets/products_list_view.dart';
+import 'package:egycan_app/Feature/Display%20Products/Presentation/Views/Widgets/sub_category_drop_down.dart';
 import 'package:flutter/material.dart';
+
+import 'custom_search_bar.dart';
 
 class DisplayProductViewBody extends StatefulWidget
 {
@@ -24,7 +23,6 @@ class _DisplayProductViewBodyState extends State<DisplayProductViewBody>
   Widget build(BuildContext context)
   {
     List<ProductModel> allProducts = widget.categoryTitleAndProducts['products'];
-    log('Message = $allProducts');
 
     return SingleChildScrollView(
       child: Column(

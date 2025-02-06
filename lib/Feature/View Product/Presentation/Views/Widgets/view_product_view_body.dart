@@ -1,28 +1,27 @@
-import 'package:egycan_app/Feature/Cart/Data/Repositories/Models/cart_model.dart';
-import 'package:egycan_app/Feature/Home/Presentation/Manager/FAB%20Cart%20Cubit/fab_cart_cubit.dart';
-import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/product_image_dialog.dart';
-import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/total_and_quantity_horizontal.dart';
-import 'package:egycan_app/Feature/Home/Presentation/Views/Widgets/total_and_quantity_vertical.dart';
+import 'package:egycan_app/Feature/Data/Repositories/Models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_device_config/config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../Core/Utils/assets_data.dart';
 import '../../../../../Core/Utils/constant_colors.dart';
-import '../../../../Data/Repositories/Models/product_model.dart';
-import 'add_to_cart_button.dart';
+import '../../../../Cart/Data/Repositories/Models/cart_model.dart';
+import '../../../../Home/Presentation/Manager/FAB Cart Cubit/fab_cart_cubit.dart';
+import '../../../../Home/Presentation/Views/Widgets/add_to_cart_button.dart';
+import '../../../../Home/Presentation/Views/Widgets/product_image_dialog.dart';
+import '../../../../Home/Presentation/Views/Widgets/total_and_quantity_horizontal.dart';
+import '../../../../Home/Presentation/Views/Widgets/total_and_quantity_vertical.dart';
 
-class ShowProductDialogBody extends StatefulWidget
+class ViewProductViewBody extends StatefulWidget
 {
-  const ShowProductDialogBody({super.key, required this.index, required this.productModel,});
+  const ViewProductViewBody({super.key, required this.productModel,});
   final ProductModel productModel;
-  final int index;
 
   @override
-  State<ShowProductDialogBody> createState() => _ShowProductDialogBodyState();
+  State<ViewProductViewBody> createState() => _ViewProductViewBodyState();
 }
 
-class _ShowProductDialogBodyState extends State<ShowProductDialogBody>
+class _ViewProductViewBodyState extends State<ViewProductViewBody>
 {
   @override
   Widget build(BuildContext context)
@@ -63,6 +62,7 @@ class _ShowProductDialogBodyState extends State<ShowProductDialogBody>
                   {
                     CartModel cartModel = CartModel(productModel: widget.productModel, total: double.parse(widget.productModel.productPrice) * AssetsData.quantity, quantity: AssetsData.quantity);
                     BlocProvider.of<FabCartCubit>(context).addToCart(cartModel: cartModel);
+                    setState(() => AssetsData.quantity = 0);
                   },
                 );
               },

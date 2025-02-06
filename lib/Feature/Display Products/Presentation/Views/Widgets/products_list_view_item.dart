@@ -1,4 +1,4 @@
-import 'package:egycan_app/Feature/Display%20Product/Presentation/Views/Widgets/products_list_view_item_body.dart';
+import 'package:egycan_app/Feature/Display%20Products/Presentation/Views/Widgets/products_list_view_item_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../Core/Utils/constant_colors.dart';

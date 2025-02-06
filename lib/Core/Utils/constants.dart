@@ -1,3 +1,4 @@
 const String homeViewPath = '/';
-const String displayProductViewPath = '/Display-Product';
+const String displayProductsViewPath = '/Display-Products';
 const String cartViewPath = '/My-Cart';
+const String viewProductViewPath = '/View-Product';
