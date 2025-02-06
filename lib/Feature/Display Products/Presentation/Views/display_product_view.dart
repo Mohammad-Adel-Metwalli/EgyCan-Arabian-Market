@@ -20,26 +20,20 @@ class _DisplayProductViewState extends State<DisplayProductView>
   @override
   Widget build(BuildContext context)
   {
-    return RefreshIndicator(
-      color: pyramidsColor,
+    return Scaffold(
       backgroundColor: white,
-      onRefresh: () async {},
-      // onRefresh: () async => await BlocProvider.of<AllProductsCubit>(context).fetchAllProducts(),
-      child: Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: white,
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: white,
-          title: Text(widget.categoryTitleAndProducts['title'], style: Styles.styleOfTitleBlue),
-          leading: IconButton(
-            onPressed: () => GoRouter.of(context).replace(homeViewPath),
-            icon: Icon(Icons.chevron_left_rounded, color: blue, size: 40.h),
-          ),
+        title: Text(widget.categoryTitleAndProducts['title'], style: Styles.styleOfTitleBlue),
+        leading: IconButton(
+          onPressed: () => GoRouter.of(context).replace(homeViewPath),
+          icon: Icon(Icons.chevron_left_rounded, color: blue, size: 40.h),
         ),
-
-
-        body: DisplayProductViewBody(categoryTitleAndProducts: widget.categoryTitleAndProducts),
       ),
+
+
+      body: DisplayProductViewBody(categoryTitleAndProducts: widget.categoryTitleAndProducts),
     );
   }
 }
