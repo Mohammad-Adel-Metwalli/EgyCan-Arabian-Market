@@ -8,10 +8,9 @@ import '../../../../../Core/Widgets/category_title.dart';
 
 class AllCategoriesAndProductsItem extends StatefulWidget
 {
-  const AllCategoriesAndProductsItem({super.key, required this.categoriesTitles, required this.index, this.allRows, required this.allProducts,});
+  const AllCategoriesAndProductsItem({super.key, required this.categoriesTitles, required this.index, required this.allProducts,});
   final List<String>? categoriesTitles;
-  final Map<String, List<ProductModel>> allProducts;
-  final List<List<String>>? allRows;
+  final List<ProductModel>? allProducts;
   final int index;
 
   @override
@@ -32,20 +31,25 @@ class _AllCategoriesAndProductsItemState extends State<AllCategoriesAndProductsI
             SizedBox(width: MediaQuery.sizeOf(context).width * 0.005),
 
             ShowProductsOfCategory(
-              onPressed: () => GoRouter.of(context).replace(
-                displayProductsViewPath,
-                extra: {
-                  'title': widget.categoriesTitles?[widget.index],
-                  'products': widget.allProducts[widget.categoriesTitles?[widget.index]],
-                },
-              ),
+              onPressed: ()
+              {
+                List<ProductModel>? filterCategoryProducts = widget.allProducts?.where((product) => product.category.trim() == widget.categoriesTitles![widget.index].trim()).toList();
+
+                GoRouter.of(context).push(
+                  displayProductsViewPath,
+                  extra: {
+                    'title': widget.categoriesTitles?[widget.index],
+                    'products': filterCategoryProducts,
+                  },
+                );
+              },
             ),
           ],
         ),
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.035),
 
-        CategoryListView(categoryTitle: widget.categoriesTitles![widget.index], allProducts: widget.allProducts[widget.categoriesTitles![widget.index]]?? []),
+        CategoryListView(categoryTitle: widget.categoriesTitles![widget.index], allProducts: widget.allProducts!.where((product) => product.category.trim() == widget.categoriesTitles![widget.index].trim()).toList()),
 
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.035),
       ],

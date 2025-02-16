@@ -15,12 +15,11 @@ class ProductsListView extends StatefulWidget
 
 class _ProductsListViewState extends State<ProductsListView>
 {
-  List<ProductModel> allProducts = [];
 
   @override
   Widget build(BuildContext context)
   {
-    allProducts = widget.allProducts.where((product)
+    List<ProductModel> allProducts = widget.allProducts.where((product)
     {
       final matchesSubCategory = widget.chosenSubCategory.isEmpty || product.subCategory == widget.chosenSubCategory;
       final matchesSearch = widget.searchedProduct.isEmpty || product.productName.toLowerCase().contains(widget.searchedProduct.toLowerCase());
@@ -33,7 +32,11 @@ class _ProductsListViewState extends State<ProductsListView>
       physics: const NeverScrollableScrollPhysics(),
       itemCount: widget.searchedProduct == '' && widget.chosenSubCategory == '' ? widget.allProducts.length : allProducts.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: MediaQuery.sizeOf(context).width <= 500 ? 2 : 6, childAspectRatio: MediaQuery.sizeOf(context).width <= 500 ? 0.6 : (MediaQuery.sizeOf(context).width <= 1040 ? 0.45 : 0.7)),
-      itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: widget.allProducts, index: index) : (allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) && allProducts[index].subCategory.contains(widget.chosenSubCategory) ? ProductsListViewItem(categoryTitle: widget.categoryTitle, allProducts: allProducts, index: index) : const SizedBox.shrink()),
+      itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(
+        categoryTitle: widget.categoryTitle,
+        product: allProducts[index],
+        index: index,
+      ) : (allProducts[index].productName.toLowerCase().contains(widget.searchedProduct.toLowerCase()) && allProducts[index].subCategory.contains(widget.chosenSubCategory) ? ProductsListViewItem(categoryTitle: widget.categoryTitle, product: allProducts[index], index: index) : const SizedBox.shrink()),
     );
   }
 }

@@ -6,15 +6,15 @@ import '../../../../Data/Repositories/Models/product_model.dart';
 
 class ProductsListViewItem extends StatelessWidget
 {
-  const ProductsListViewItem({super.key, required this.allProducts, required this.index, required this.categoryTitle,});
-  final List<ProductModel> allProducts;
+  const ProductsListViewItem({super.key, required this.product, required this.index, required this.categoryTitle,});
+  final ProductModel product;
   final String categoryTitle;
   final int index;
 
   @override
   Widget build(BuildContext context)
   {
-    return allProducts[index].category == categoryTitle ? Padding(
+    return product.category.trim() == categoryTitle.trim() ? Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       child: Container(
         decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class ProductsListViewItem extends StatelessWidget
           border: Border.all(color: pyramidsColor, width: 3.5),
         ),
 
-        child: ProductsListViewItemBody(allProducts: allProducts, categoryTitle: categoryTitle, index: index),
+        child: ProductsListViewItemBody(key: ValueKey(product.imageUrl), product: product, categoryTitle: categoryTitle, index: index),
       ),
     ) : const SizedBox.shrink();
   }

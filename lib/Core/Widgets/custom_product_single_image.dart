@@ -1,15 +1,21 @@
-import 'package:egycan_app/Core/Utils/constant_colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import '../../Feature/Data/Repositories/Models/product_model.dart';
 
-class CustomProductSingleImage extends StatelessWidget
+class CustomProductSingleImage extends StatefulWidget
 {
   const CustomProductSingleImage({super.key, required this.productModel, required this.height, required this.width,});
   final ProductModel productModel;
   final double height, width;
 
+  @override
+  State<CustomProductSingleImage> createState() => _CustomProductSingleImageState();
+}
+
+class _CustomProductSingleImageState extends State<CustomProductSingleImage>
+{
   @override
   Widget build(BuildContext context)
   {
@@ -17,7 +23,12 @@ class CustomProductSingleImage extends StatelessWidget
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: productModel.imageUrl == '' || !(productModel.imageUrl.contains('iframe'))? Icon(Icons.image_not_supported_outlined, color: red, size: 80.h) : AbsorbPointer(absorbing: true, child: HtmlWidget(productModel.imageUrl, enableCaching: true)),
+        child: CachedNetworkImage(
+          height: 150.h,
+          width: 150.w,
+          imageUrl: widget.productModel.imageUrl,
+          imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+        ),
       ),
     );
   }

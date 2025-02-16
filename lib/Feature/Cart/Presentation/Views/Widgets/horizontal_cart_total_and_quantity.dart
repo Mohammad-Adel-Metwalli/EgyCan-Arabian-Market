@@ -23,6 +23,7 @@ class _HorizontalCartTotalAndQuantityState extends State<HorizontalCartTotalAndQ
   Widget build(BuildContext context)
   {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(widget.cartProducts[widget.index].productModel.productName, style: TextStyle(fontSize: 15.sp, overflow: TextOverflow.ellipsis), maxLines: 1, textAlign: TextAlign.center),

@@ -3,7 +3,6 @@ import 'package:egycan_app/Feature/Data/Repositories/Models/product_model.dart';
 import 'package:egycan_app/Feature/Display%20Products/Presentation/Views/Widgets/products_list_view.dart';
 import 'package:egycan_app/Feature/Display%20Products/Presentation/Views/Widgets/sub_category_drop_down.dart';
 import 'package:flutter/material.dart';
-
 import 'custom_search_bar.dart';
 
 class DisplayProductViewBody extends StatefulWidget

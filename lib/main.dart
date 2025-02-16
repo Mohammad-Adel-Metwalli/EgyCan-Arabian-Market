@@ -35,8 +35,7 @@ class EgyCanApp extends StatelessWidget
           title: 'EgyCan Arabian Market',
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-              textTheme: GoogleFonts.vigaTextTheme(), useMaterial3: true),
+          theme: ThemeData(textTheme: GoogleFonts.vigaTextTheme(), useMaterial3: true),
         ),
       ),
     );

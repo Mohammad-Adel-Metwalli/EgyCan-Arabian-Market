@@ -17,9 +17,7 @@ abstract class AppRouter
 
       GoRoute(
         path: displayProductsViewPath,
-        builder: (context, state) =>
-            DisplayProductView(
-                categoryTitleAndProducts: state.extra as Map<dynamic, dynamic>),
+        builder: (context, state) => DisplayProductView(categoryTitleAndProducts: state.extra as Map<dynamic, dynamic>),
       ),
 
       GoRoute(

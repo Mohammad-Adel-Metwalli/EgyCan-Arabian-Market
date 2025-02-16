@@ -16,6 +16,8 @@ class CategoryListView extends StatefulWidget
 
 class _CategoryListViewState extends State<CategoryListView>
 {
+  int counter = 0;
+
   @override
   Widget build(BuildContext context)
   {
@@ -25,7 +27,10 @@ class _CategoryListViewState extends State<CategoryListView>
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: widget.allProducts.length,
-        itemBuilder: (context, index) => ZoomIn(child: CategoryListViewItem(index: index, productModel: widget.allProducts[index])),
+        itemBuilder: (context, index)
+        {
+          return ZoomIn(child: CategoryListViewItem(index: index, productModel: widget.allProducts[index]));
+        },
       ),
     );
   }
