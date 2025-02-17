@@ -19,8 +19,7 @@ class CustomHomeAppBar extends StatelessWidget
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
-
-        borderRadius: BorderRadius.circular(MediaQuery.sizeOf(context).width <= 500 ? 50 : 75),
+        borderRadius: BorderRadius.circular(MediaQuery.sizeOf(context).width <= 500 ? 50 : 65),
       ),
 
       child: const CustomHomeAppBarBody(),
