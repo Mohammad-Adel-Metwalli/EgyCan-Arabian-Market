@@ -14,37 +14,36 @@ class HomeViewBody extends StatefulWidget
   State<HomeViewBody> createState() => _HomeViewBodyState();
 }
 
-class _HomeViewBodyState extends State<HomeViewBody>
+class _HomeViewBodyState extends State<HomeViewBody> with TickerProviderStateMixin
 {
   int indexOfSiteImages = 0;
 
   @override
   Widget build(BuildContext context)
   {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: CustomHomeAppBar(),
           ),
+        ),
 
-          MediaQuery.sizeOf(context).width <= 500 ? const Center(child: ContactUsButton()) : const SizedBox.shrink(),
+        MediaQuery.sizeOf(context).width <= 500 ? const SliverToBoxAdapter(child: Center(child: ContactUsButton())) : const SliverToBoxAdapter(child: SizedBox.shrink()),
 
-          MediaQuery.sizeOf(context).width <= 500 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.02) : const SizedBox.shrink(),
+        MediaQuery.sizeOf(context).width <= 500 ? SliverToBoxAdapter(child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.02)) : const SliverToBoxAdapter(child: SizedBox.shrink()),
 
-          SiteImages(onPageChanged: (index, _) => setState(() => indexOfSiteImages = index)),
+        SliverToBoxAdapter(child: SiteImages(onPageChanged: (index, _) => setState(() => indexOfSiteImages = index))),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+        SliverToBoxAdapter(child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.02)),
 
-          Center(child: SiteImagesDots(indexOfSiteImages: indexOfSiteImages)),
+        SliverToBoxAdapter(child: Center(child: SiteImagesDots(indexOfSiteImages: indexOfSiteImages))),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.04),
+        SliverToBoxAdapter(child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.04)),
 
-          FadeInUpBig(child: const AllCategoriesAndProducts()),
-        ],
-      ),
+        SliverToBoxAdapter(child: FadeInUpBig(child: const AllCategoriesAndProducts())),
+      ],
     );
   }
 }

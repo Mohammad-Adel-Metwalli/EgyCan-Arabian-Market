@@ -11,6 +11,7 @@ import '../../../../Home/Presentation/Views/Widgets/add_to_cart_button.dart';
 import '../../../../Home/Presentation/Views/Widgets/product_image_dialog.dart';
 import '../../../../Home/Presentation/Views/Widgets/total_and_quantity_horizontal.dart';
 import '../../../../Home/Presentation/Views/Widgets/total_and_quantity_vertical.dart';
+import 'custom_images_list_view.dart';
 
 class ViewProductViewBody extends StatefulWidget
 {
@@ -33,7 +34,11 @@ class _ViewProductViewBodyState extends State<ViewProductViewBody>
           children: [
             SizedBox(height: 20.h),
 
-            ProductImageDialog(imageUrl: widget.productModel.imageUrl),
+            widget.productModel.imageUrl.length == 1 ? ProductImageDialog(imageUrl: widget.productModel.imageUrl[0]) : SizedBox(
+              height: 150.h,
+              width: double.infinity,
+              child: CustomImagesListView(productModel: widget.productModel),
+            ),
 
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
 

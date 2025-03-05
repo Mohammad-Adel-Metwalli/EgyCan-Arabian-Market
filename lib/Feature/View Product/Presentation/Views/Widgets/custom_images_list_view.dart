@@ -2,31 +2,26 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../Feature/Data/Repositories/Models/product_model.dart';
+import '../../../../Data/Repositories/Models/product_model.dart';
 
-class CustomProductSingleImage extends StatefulWidget
+class CustomImagesListView extends StatelessWidget
 {
-  const CustomProductSingleImage({super.key, required this.productModel, required this.height, required this.width,});
+  const CustomImagesListView({super.key, required this.productModel,});
   final ProductModel productModel;
-  final double height, width;
 
-  @override
-  State<CustomProductSingleImage> createState() => _CustomProductSingleImageState();
-}
-
-class _CustomProductSingleImageState extends State<CustomProductSingleImage>
-{
   @override
   Widget build(BuildContext context)
   {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: productModel.imageUrl.length,
+      separatorBuilder: (context, index) => SizedBox(width: 20.w),
+      itemBuilder: (context, index) => ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: CachedNetworkImage(
           height: 150.h,
           width: 150.w,
-          imageUrl: widget.productModel.imageUrl[0],
+          imageUrl: productModel.imageUrl[index],
           imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
         ),
       ),

@@ -23,7 +23,7 @@ class EgycanTitleAndContactUsButton extends StatelessWidget
 
             SizedBox(width: MediaQuery.sizeOf(context).width * 0.01),
 
-            Text('EgyCan©${DateTime.now().year}', style: TextStyle(color: white, fontSize: 16.sp)),
+            Text('EgyCan©${DateTime.now().year}', style: TextStyle(color: white, fontSize: 16.sp, fontWeight: FontWeight.bold)),
           ],
         ),
       ],

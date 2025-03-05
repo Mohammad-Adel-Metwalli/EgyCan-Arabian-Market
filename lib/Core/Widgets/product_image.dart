@@ -26,7 +26,7 @@ class _ProductImageState extends State<ProductImage>
         child: CachedNetworkImage(
           height: 150.h,
           width: 150.w,
-          imageUrl: widget.productModel.imageUrl,
+          imageUrl: widget.productModel.imageUrl[0],
           imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
         ),
       ),

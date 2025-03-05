@@ -3,7 +3,6 @@ import 'package:cached_network_image_platform_interface/cached_network_image_pla
 import 'package:egycan_app/Feature/Data/Repositories/Models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../Core/Utils/constant_colors.dart';
 
 class ProductCartImage extends StatefulWidget
 {
@@ -24,7 +23,7 @@ class _ProductCartImageState extends State<ProductCartImage>
       child: CachedNetworkImage(
         height: 150.h,
         width: 150.w,
-        imageUrl: widget.productModel.imageUrl,
+        imageUrl: widget.productModel.imageUrl[0],
         imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
       ),
     );

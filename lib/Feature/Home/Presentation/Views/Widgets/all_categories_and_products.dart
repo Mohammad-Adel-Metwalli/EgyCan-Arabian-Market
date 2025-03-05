@@ -4,8 +4,14 @@ import 'package:egycan_app/Feature/Data/Repositories/Models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../Core/Utils/constant_colors.dart';
+import '../../../../../Core/Utils/styles.dart';
+import '../../../../../Core/Widgets/custom_product_single_image.dart';
 import '../../../../../Core/Widgets/custom_progress_indicator.dart';
+import '../../../../../Core/Widgets/show_more_button.dart';
+import '../../../../Display Products/Presentation/Views/Widgets/products_list_view_item.dart';
 import 'all_categories_and_products_item.dart';
+import 'categories_tab_views.dart';
+import 'categories_tabs.dart';
 
 class AllCategoriesAndProducts extends StatefulWidget
 {
@@ -15,7 +21,7 @@ class AllCategoriesAndProducts extends StatefulWidget
   State<AllCategoriesAndProducts> createState() => _AllCategoriesAndProductsState();
 }
 
-class _AllCategoriesAndProductsState extends State<AllCategoriesAndProducts>
+class _AllCategoriesAndProductsState extends State<AllCategoriesAndProducts> with TickerProviderStateMixin
 {
   @override
   Widget build(BuildContext context)
@@ -49,21 +55,29 @@ class _AllCategoriesAndProductsState extends State<AllCategoriesAndProducts>
           var productsCollection = snapshot.data?[1].map((category) => category.data() as Map<String, dynamic>).toList();
 
           List<String> allCategories = categoriesCollection.values.map((value) => value[0].toString()).toList();
-          List<ProductModel>? allProducts = productsCollection?.map((product) => ProductModel(productName: product['productName'], productPrice: product['productPrice'].toString(), category: product['category'], subCategory: product['subCategory'], imageUrl: product['imagesUrls'][0])).toList();
+          List<ProductModel>? allProducts = productsCollection?.map((product) => ProductModel(productName: product['productName'], productPrice: product['productPrice'].toString(), category: product['category'], subCategory: product['subCategory'], imageUrl: product['imagesUrls'])).toList();
+          // TabController tabController = TabController(length: allCategories.length, vsync: this);
 
+          // return SizedBox(
+          //   height: MediaQuery.sizeOf(context).height * 0.75,
+          //   child: Column(
+          //     children: [
+          //       CategoriesTabs(tabController: tabController, allCategories: allCategories),
+          //
+          //       CategoriesTabViews(tabController: tabController, allCategories: allCategories, allProducts: allProducts),
+          //     ],
+          //   ),
+          // );
           return ListView.separated(
             shrinkWrap: true,
             itemCount: allCategories.length,
             physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (context, index) => SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
-            itemBuilder: (context, index)
-            {
-              return AllCategoriesAndProductsItem(
-                categoriesTitles: allCategories,
-                allProducts: allProducts,
-                index: index,
-              );
-            },
+            itemBuilder: (context, index) => AllCategoriesAndProductsItem(
+              categoriesTitles: allCategories,
+              allProducts: allProducts,
+              index: index,
+            ),
           );
         }
       }

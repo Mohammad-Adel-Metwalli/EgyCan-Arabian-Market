@@ -12,7 +12,7 @@ class HomeView extends StatefulWidget
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView>
+class _HomeViewState extends State<HomeView> with TickerProviderStateMixin
 {
   @override
   void didChangeDependencies()

@@ -16,7 +16,7 @@ class CategoryListViewItem extends StatelessWidget
     return Padding(
       padding: EdgeInsets.only(right: 5.w, left: 20.w),
       child: Container(
-        width: 420.w,
+        width: MediaQuery.sizeOf(context).width <= 500 ? 300.w : 420.w,
         decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.circular(25),

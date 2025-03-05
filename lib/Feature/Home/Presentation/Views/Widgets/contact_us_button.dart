@@ -14,7 +14,7 @@ class ContactUsButton extends StatelessWidget
   {
     return SizedBox(
       height: 55.h,
-      width: 200.w,
+      width: 250.w,
       child: MaterialButton(
         color: white,
         splashColor: black.withOpacity(0.2),
