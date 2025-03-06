@@ -31,7 +31,7 @@ class _ProductsListViewState extends State<ProductsListView>
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: widget.searchedProduct == '' && widget.chosenSubCategory == '' ? widget.allProducts.length : allProducts.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: MediaQuery.sizeOf(context).width <= 500 ? 2 : 6, childAspectRatio: MediaQuery.sizeOf(context).width <= 500 ? 0.6 : (MediaQuery.sizeOf(context).width <= 1040 ? 0.45 : 0.7)),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: MediaQuery.sizeOf(context).width <= 500 ? 2 : 6, childAspectRatio: MediaQuery.sizeOf(context).width <= 500 ? 0.6 : (MediaQuery.sizeOf(context).width <= 1040 ? 0.4 : 0.6)),
       itemBuilder: (context, index) => widget.searchedProduct == '' && widget.chosenSubCategory == '' ? ProductsListViewItem(
         categoryTitle: widget.categoryTitle,
         product: allProducts[index],
