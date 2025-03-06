@@ -34,10 +34,12 @@ class _ViewProductViewBodyState extends State<ViewProductViewBody>
           children: [
             SizedBox(height: 20.h),
 
-            widget.productModel.imageUrl.length == 1 ? ProductImageDialog(imageUrl: widget.productModel.imageUrl[0]) : SizedBox(
-              height: 150.h,
-              width: double.infinity,
-              child: CustomImagesListView(productModel: widget.productModel),
+            widget.productModel.imageUrl.length == 1 ? ProductImageDialog(imageUrl: widget.productModel.imageUrl[0]) : Center(
+              child: SizedBox(
+                height: 200,
+                width: 750.w,
+                child: CustomImagesListView(productModel: widget.productModel),
+              ),
             ),
 
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),

@@ -24,8 +24,8 @@ class _ProductImageState extends State<ProductImage>
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: CachedNetworkImage(
-          height: 150.h,
-          width: 150.w,
+          height: 200.h,
+          width: 200.w,
           imageUrl: widget.productModel.imageUrl[0],
           imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
         ),
