@@ -26,7 +26,7 @@ class _ShowMoreButtonState extends State<ShowMoreButton>
       color: blue,
       height: widget.height?.h,
       minWidth: widget.width?.w,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       onPressed: () => GoRouter.of(context).push(viewProductViewPath, extra: widget.productModel),
       child: const ShowMoreButtonBody(),
     );

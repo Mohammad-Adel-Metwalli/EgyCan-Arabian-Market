@@ -15,15 +15,16 @@ class CategoryListViewItem extends StatelessWidget
   {
     return Padding(
       padding: EdgeInsets.only(right: 5.w, left: 20.w),
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.sizeOf(context).width <= 500 ? 300.w : 420.w,
-        decoration: BoxDecoration(
+        child: Material(
           color: white,
-          borderRadius: BorderRadius.circular(25),
-          border: Border.all(color: pyramidsColor, width: 4),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+            side: BorderSide(color: grey.shade200, width: 1.3),
+          ),
+          child: CategoryListViewItemBody(productModel: productModel, index: index),
         ),
-
-        child: CategoryListViewItemBody(productModel: productModel, index: index),
       ),
     );
   }

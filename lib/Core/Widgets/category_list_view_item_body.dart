@@ -13,7 +13,6 @@ class CategoryListViewItemBody extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Column(
-      mainAxisAlignment: productModel.imageUrl == '' || !(productModel.imageUrl.contains('iframe')) ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         ProductImage(productModel: productModel, index: index),
 
