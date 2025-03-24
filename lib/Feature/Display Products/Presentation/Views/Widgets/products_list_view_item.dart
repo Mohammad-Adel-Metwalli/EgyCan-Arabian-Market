@@ -16,11 +16,17 @@ class ProductsListViewItem extends StatelessWidget
   {
     return product.category.trim() == categoryTitle.trim() ? Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-      child: Material(
-        color: white,
-        shape: RoundedRectangleBorder(
+      child: Container(
+        decoration: BoxDecoration(
+          color: white,
           borderRadius: BorderRadius.circular(25),
-          side: BorderSide(color: grey.shade200, width: 1.3),
+          border: Border.all(color: grey.shade200, width: 1.3),
+          boxShadow: [
+            BoxShadow(
+              color: grey.shade200,
+              offset: Offset(0, 4.h),
+            ),
+          ],
         ),
         child: ProductsListViewItemBody(key: ValueKey(product.imageUrl), product: product, categoryTitle: categoryTitle, index: index),
       ),

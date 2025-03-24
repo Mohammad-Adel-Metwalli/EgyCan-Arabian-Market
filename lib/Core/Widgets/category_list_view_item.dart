@@ -14,17 +14,21 @@ class CategoryListViewItem extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Padding(
-      padding: EdgeInsets.only(right: 5.w, left: 20.w),
-      child: SizedBox(
+      padding: EdgeInsets.only(right: 5.w, left: 20.w, top: 5.h, bottom: 5.h),
+      child: Container(
         width: MediaQuery.sizeOf(context).width <= 500 ? 300.w : 420.w,
-        child: Material(
+        decoration: BoxDecoration(
           color: white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25),
-            side: BorderSide(color: grey.shade200, width: 1.3),
-          ),
-          child: CategoryListViewItemBody(productModel: productModel, index: index),
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(color: grey.shade200, width: 1.3),
+          boxShadow: [
+            BoxShadow(
+              color: grey.shade100,
+              offset: Offset(0, 5.h)
+            ),
+          ],
         ),
+        child: CategoryListViewItemBody(productModel: productModel, index: index),
       ),
     );
   }
